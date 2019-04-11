@@ -2,12 +2,13 @@ import {
   ITlgrmBotService,
   ITlgrmUpdateHandler,
   ContextMessageUpdate,
+  HandlerFunction,
 } from './interfaces';
 
 function TlgrmUpdateHandler(bot: ITlgrmBotService) {
   return <T extends new(...args: any[]) => {}>(constructor: T) => {
     return class extends constructor implements ITlgrmUpdateHandler {
-      [methodName: string]: (ctx: ContextMessageUpdate) => void;
+      [methodName: string]: HandlerFunction;
 
       constructor(...args: any[]) {
         super(...args);
@@ -24,7 +25,7 @@ function TlgrmUpdateHandler(bot: ITlgrmBotService) {
   };
 }
 
-export function command<T extends (ctx: ContextMessageUpdate) => void>(commandName: string | string[]) {
+export function command<T extends HandlerFunction>(commandName: string | string[]) {
   return (target: any, key: string, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T> => {
     if (!descriptor || (typeof descriptor.value !== 'function')) {
       throw new TypeError(`Only methods can be decorated with @command. <${key}> is not a method!`);
