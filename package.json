@@ -1,7 +1,7 @@
 {
   "name": "tlgrm-update-handler",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Decorators for telegraf-js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": ["lib/**/*"],
@@ -18,8 +18,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^24.0.11",
