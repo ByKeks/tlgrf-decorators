@@ -9,17 +9,17 @@ export const makeCommand = (commandName: string) => ({
         is_bot: false,
         first_name: 'Test',
         username: 'Test',
-        language_code: 'ru'
+        language_code: 'ru',
       },
      chat:
       {
         id: 0,
         first_name: 'Test',
         username: 'Test',
-        type: 'private'
+        type: 'private',
       },
      date: 0,
      text: `/${commandName}`,
      entities: [ { offset: 0, length: commandName.length + 1, type: 'bot_command' } ],
-  }
+  },
 });

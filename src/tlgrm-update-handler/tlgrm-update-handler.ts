@@ -6,7 +6,7 @@ import {
 
 function TlgrmUpdateHandler(bot: ITlgrmBotService) {
   return <T extends new(...args: any[]) => {}>(constructor: T) => {
-    return class TlgrmUpdateHandler extends constructor implements ITlgrmUpdateHandler {
+    return class extends constructor implements ITlgrmUpdateHandler {
       [methodName: string]: (ctx: ContextMessageUpdate) => void;
 
       constructor(...args: any[]) {
@@ -15,8 +15,8 @@ function TlgrmUpdateHandler(bot: ITlgrmBotService) {
         Object.getOwnPropertyNames(constructor.prototype).map((methodName: string) => {
           const descriptor = Object.getOwnPropertyDescriptor(constructor.prototype, methodName);
           if ('command' in descriptor.value && 'handler' in descriptor.value) {
-            const { handler, command } = descriptor.value;
-            bot.command(command, handler.bind(this));
+            const { handler, command: commandName } = descriptor.value;
+            bot.command(commandName, handler.bind(this));
           }
         });
       }
@@ -34,7 +34,7 @@ export function command<T extends (ctx: ContextMessageUpdate) => void>(commandNa
       value: {
         handler: descriptor.value,
         command: commandName,
-      }
+      },
     });
   };
 }

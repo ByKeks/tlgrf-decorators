@@ -64,10 +64,10 @@ describe('TlgrmUpdateHandler', () => {
           done();
         }
       }
-  
+
       const bot = new Telegraf(null);
       const handler: ITlgrmUpdateHandler = new (TlgrmUpdateHandler(bot)(Handler))();
-  
+
       bot.handleUpdate(commands.makeCommand('settings'));
     });
   });
