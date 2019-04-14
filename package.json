@@ -1,16 +1,29 @@
 {
-  "name": "tlgrm-update-handler",
-  "version": "0.1.4",
-  "description": "Decorators for telegraf-js",
+  "name": "telegraf-decorators",
+  "version": "0.1.0",
+  "description": "Decorators for telegraf base applications",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "files": ["lib/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ByKeks/telegraf-decorators.git"
+  },
+  "keywords": [
+    "telegraf",
+    "telegram",
+    "decorators",
+    "typescript",
+    "ts"
+  ],
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "preversion" : "npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags",
-    "prepublishOnly" : "npm test && npm run lint",
-    "prepare" : "npm run build",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "prepublishOnly": "npm test && npm run lint",
+    "prepare": "npm run build",
     "format": "prettier --write \"src/**/*.ts\"",
     "build": "tsc -p tsconfig.build.json",
     "lint": "tslint -p tsconfig.json -c tslint.json",
@@ -25,6 +38,7 @@
     "jest": "^24.7.1",
     "prettier": "^1.16.4",
     "telegraf": "^3.28.0",
+    "telegrafer": "^0.1.2",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.0.3",
     "tsconfig-paths": "^3.8.0",

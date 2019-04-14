@@ -1,13 +1,9 @@
-import {
-  ITlgrmBotService,
-  ITlgrmUpdateHandler,
-  ContextMessageUpdate,
-  HandlerFunction,
-} from './interfaces';
+import { Telegraf, ContextMessageUpdate } from 'telegraf';
+import { HandlerFunction } from './interfaces';
 
-function TlgrmUpdateHandler(bot: ITlgrmBotService) {
+function Connect(bot: Telegraf<ContextMessageUpdate>) {
   return <T extends new(...args: any[]) => {}>(constructor: T) => {
-    return class extends constructor implements ITlgrmUpdateHandler {
+    return class extends constructor {
       [methodName: string]: HandlerFunction;
 
       constructor(...args: any[]) {
@@ -44,4 +40,4 @@ export const help = command('help');
 export const start = command('start');
 export const settings = command('settings');
 
-export { TlgrmUpdateHandler };
+export { Connect };
