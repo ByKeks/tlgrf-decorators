@@ -1,11 +1,9 @@
-import Telegraf from 'telegraf';
+import Telegraf, { ContextMessageUpdate } from 'telegraf';
 import { update } from 'telegrafer';
-import {
-  Connect, start, help, settings, command,
-  ContextMessageUpdate,
-} from './../decorators';
+import { Connect } from './../decorators/connect';
+import { Start, Help, Settings, Command } from './../decorators/command';
 
-describe('TelegrafDecorators', () => {
+describe('Tlgrf:Decorators', () => {
   let bot: Telegraf<ContextMessageUpdate>;
 
   beforeAll(() => {
@@ -17,7 +15,7 @@ describe('TelegrafDecorators', () => {
       it(`should handle "${commandName}" command`, (done) => {
         @Connect(bot)
         class CommandHandler {
-          @command(commandName)
+          @Command(commandName)
           private onCommand(ctx: ContextMessageUpdate) {
             ctx.reply(commandName);
           }
@@ -39,7 +37,7 @@ describe('TelegrafDecorators', () => {
     it(`should handle "start" command`, (done) => {
       @Connect(bot)
       class Handler {
-        @start
+        @Start
         private onCommand(ctx: ContextMessageUpdate) {
           ctx.reply('start');
         }
@@ -60,7 +58,7 @@ describe('TelegrafDecorators', () => {
     it(`should handle "help" command`, (done) => {
       @Connect(bot)
       class Handler {
-        @help
+        @Help
         private onCommand(ctx: ContextMessageUpdate) {
           ctx.reply('help');
         }
@@ -81,7 +79,7 @@ describe('TelegrafDecorators', () => {
     it(`should handle "settings" command`, (done) => {
       @Connect(bot)
       class Handler {
-        @settings
+        @Settings
         private onCommand(ctx: ContextMessageUpdate) {
           ctx.reply('settings');
         }
