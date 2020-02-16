@@ -23,11 +23,13 @@ interface IMetadata {
   [key: string]: string[];
 }
 
-const initialMetadata = () => new Proxy({}, {
-  get(target: IMetadata, prop: MethodName) {
-    if (!(prop in target)) {
-      target[prop] = [];
-    }
-    return target[prop];
-  },
-});
+function initialMetadata() {
+  return new Proxy({}, {
+    get(target: IMetadata, prop: MethodName) {
+      if (!(prop in target)) {
+        target[prop] = [];
+      }
+      return target[prop];
+    },
+  })
+};
