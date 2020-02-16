@@ -36,16 +36,16 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.11",
+    "@types/jest": "^25.1.2",
     "@types/reflect-metadata": "^0.1.0",
-    "jest": "^24.7.1",
-    "prettier": "^1.16.4",
-    "telegraf": "^3.28.0",
-    "telegrafer": "^0.1.3",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.0.3",
-    "tsconfig-paths": "^3.8.0",
-    "tslint": "^5.15.0",
-    "typescript": "^3.4.2"
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "telegraf": "^3.36.0",
+    "telegrafer": "^0.1.5",
+    "ts-jest": "^25.2.0",
+    "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5"
   }
 }
