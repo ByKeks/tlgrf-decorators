@@ -1,6 +1,6 @@
 {
   "name": "tlgrf-decorators",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Decorators for telegraf base applications",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -41,7 +41,7 @@
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "telegraf": "^3.36.0",
-    "telegrafer": "^0.1.5",
+    "telegrafer": "^0.1.6",
     "ts-jest": "^25.2.0",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
