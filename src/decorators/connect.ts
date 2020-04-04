@@ -16,7 +16,7 @@ function Connect(bot: Telegraf<ContextMessageUpdate>) {
           Object.keys(metadata).map((methodName: MethodNameUnion) => {
             metadata[methodName].map((decorator: IDecorator) => {
               // @ts-ignore
-              bot[methodName](decorator.options, decorator.descriptor.value);
+              bot[methodName](decorator.options, decorator.descriptor.value.bind(this));
             });
           });
         });
